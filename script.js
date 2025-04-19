@@ -7,7 +7,7 @@ function showImage() {
 
   const currentImage = imageList[currentIndex];
   $("#image").fadeOut(500, function () {
-    $("#image").attr("src", currentImage.filename);
+    $("#image").attr("src", "images/"+currentImage.filename);
     $("#image").fadeIn(500);
   });
 
@@ -21,8 +21,8 @@ function loadImages() {
 
   xhttp.open("GET", "image.txt", true);
   xhttp.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      const lines = xhr.responseText.trim().split("\n");
+    if (xhttp.readyState === 4 && xhttp.status === 200) {
+      const lines = xhttp.responseText.trim().split("\n");
       imageList = lines.map((line) => {
         const [filename, durationStr] = line.trim().split(" ");
         return {
