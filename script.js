@@ -58,4 +58,10 @@ $("#prevBtn").on("click", function () {
   prevImage();
 });
 
+$("#updateBtn").on("click", function () {
+  if (timer) clearTimeout(timer);
+  currentIndex = 0; // Reset to first image
+  showImage(); // Show the first image immediately
+});
+
 loadImages();
